@@ -1,0 +1,4 @@
+::ng-deep #zmmtg-root {
+  position: static !important;
+  background-color: transparent !important;
+}

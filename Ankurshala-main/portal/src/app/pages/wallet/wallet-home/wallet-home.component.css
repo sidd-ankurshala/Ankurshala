@@ -1,0 +1,12 @@
+.hover-effect {
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Smooth transition */
+    cursor: pointer;
+  }
+  
+  .hover-effect:hover {
+    background-color: var(--bs-primary); /* Use Bootstrap primary color */
+    color: #fff; /* White text for contrast */
+    transform: scale(1.05); /* Slightly enlarge for effect */
+    border: none;
+  }
+  

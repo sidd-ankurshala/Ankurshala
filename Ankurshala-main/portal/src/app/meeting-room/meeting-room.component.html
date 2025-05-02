@@ -1,0 +1,269 @@
+<!-- <div class="container-fluid p-3">
+  <div class="row gx-3">
+
+    <div class="col-lg-6 col-md-12 mb-3">
+      <div class="video-window">
+        <video
+          id="teacherVideo"
+          autoplay
+          playsinline
+          muted
+          class="w-100 h-100"
+        ></video>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-3">
+      <div class="video-window text-center">Student Window</div>
+    </div>
+  </div>
+  <div class="row gx-3">
+
+    <div class="col-lg-6 col-md-12 mb-3">
+      <div class="chat-area">
+        <h5>Chat</h5>
+        <div *ngFor="let message of messages">
+          <strong>{{ message.sender }}:</strong> {{ message.text }}
+        </div>
+        <div class="input-group mt-3">
+          <input
+            type="text"
+            [(ngModel)]="newMessage"
+            placeholder="Type a message..."
+            class="form-control"
+          />
+          <button class="btn btn-primary" (click)="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-3">
+      <div class="notes-area">
+        <h5>Whiteboard</h5>
+        <canvas id="whiteboardCanvas" class="w-100" height="100"></canvas>
+        <div class="whiteboard-buttons mt-2 text-center">
+          <button class="btn btn-secondary" (click)="toggleEraser()">
+            {{ isEraserActive ? "Disable Eraser" : "Enable Eraser" }}
+          </button>
+          <button class="btn btn-danger" (click)="clearWhiteboard()">
+            Clear Whiteboard
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    
+    <div class="col-12 text-center helper-buttons">
+      <button class="btn btn-primary" (click)="toggleMute()">
+        <i class="bi bi-mic-mute"></i> {{ isMuted ? "Unmute" : "Mute" }}
+      </button>
+      <button class="btn btn-success" (click)="startVideo()">
+        <i class="bi bi-camera-video"></i> Start Video
+      </button>
+      <button class="btn btn-info">
+        <i class="bi bi-display"></i> Share Screen
+      </button>
+      <button class="btn btn-warning">
+        <i class="bi bi-chat"></i> Open Chat
+      </button>
+      <button class="btn btn-secondary">
+        <i class="bi bi-file-earmark-text"></i> Take Notes
+      </button>
+    </div>
+  </div>
+</div> -->
+
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-8">
+        <div class="card card-border teacher-screen video-screen">
+          <!-- <h2>Teacher screen</h2> -->
+        </div>
+        <div class="row mt-3">
+          <div class="col-4">
+            <div
+              class="card video-screen position-relative"
+              style="height: 150px"
+            >
+              <!-- <h2>Student</h2> -->
+              <div
+                class="w-100 d-flex justify-content-between position-absolute bottom-0 start-0 bottom-0 start-0"
+              >
+                <div class="name m-3 p-1 rounded bg-light text-dark">
+                  <h5 class="m-0">Aman Rai hjkhjk</h5>
+                </div>
+                <div class="name m-3 p-1 rounded bg-primary text-light">
+                  <h5 class="m-0">Mic</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card position-relative">
+              <!-- <h2>Student</h2> -->
+              <div class="p-2">
+                <div class="form-floating">
+                  <textarea
+                    class="form-control border-0 rounded-4"
+                    placeholder="Leave a comment here"
+                    id="floatingTextarea2"
+                    style="height: 140px"
+                  ></textarea>
+                  <label for="floatingTextarea2">Notes</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-4 p-3">
+          <div class="row">
+            <div class="col">
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-lg btn-dark rounded-4">
+                  <i class="fa fa-microphone fs-4"></i>
+                  <i class="ml-2 fa fa-angle-up fs-3"></i>
+                </button>
+                <button class="btn btn-lg btn-dark rounded-4">
+                  <i class="fa fa-camera fs-4"></i>
+                  <i class="ml-2 fa fa-angle-up fs-3"></i>
+                </button>
+                <button class="btn btn-lg btn-dark rounded-4">
+                  <i class="fa fa-user fs-4"></i>
+                  <i class="ml-2 fa fa-angle-up fs-3"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col text-center">
+              <button class="btn btn-lg btn-danger rounded-4">
+                <i class="fa fa-phone fs-5"></i> End Meeting
+              </button>
+            </div>
+            <div class="col">
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-lg btn-dark rounded-4">
+                  <i class="fa fa-desktop fs-4"></i>
+                  <i class="ml-2 fa fa-angle-up fs-3"></i>
+                </button>
+                <button class="btn btn-lg btn-dark rounded-4">
+                  <i class="fa fa-comment fs-4"></i>
+                  <i class="ml-2 fa fa-angle-up fs-3"></i>
+                </button>
+                <button class="btn btn-lg btn-dark rounded-4">
+                  <i class="fa fa-desktop fs-4"></i>
+                  <i class="ml-2 fa fa-angle-up fs-3"></i>
+                </button>
+                <!-- <button class="btn btn-lg btn-dark">Message</button>
+                <button class="btn btn-lg btn-primary">Part</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card" style="height: 350px">
+          <div class="card-body">
+            <div class="whiteboard-container">
+              <canvas
+                #drawingCanvas
+                id="drawingCanvas"
+                width="430"
+                height="270"
+                (mousedown)="onMouseDown($event)"
+                (mousemove)="onMouseMove($event)"
+                (mouseup)="onMouseUp()"
+                (mouseleave)="onMouseUp()"
+              ></canvas>
+              <div
+                class="toolbar d-flex d=justify-content-between w-100 border p-1 rounded-3"
+              >
+                <button
+                  class="btn btn-primary btn-sm"
+                  (click)="setTool('draw')"
+                >
+                  Draw
+                </button>
+                <button
+                  class="btn btn-primary btn-sm"
+                  (click)="setTool('erase')"
+                >
+                  Erase
+                </button>
+                <button
+                  class="btn btn-primary btn-sm"
+                  (click)="setTool('text')"
+                >
+                  Text
+                </button>
+                <input type="file" (change)="onImageUpload($event)" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-body" style="height: 340px; overflow-y: scroll">
+            <div class="notes">
+              <div class="chat-container text-right">
+                <div *ngFor="let msg of messages" class="chat-bubble mt-2">
+                  {{ msg.username }} : {{ msg.message }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="input d-flex justify-content-between">
+              <div class="form-floating w-100">
+                <input
+                  class="form-control rounded-4"
+                  type="text"
+                  [(ngModel)]="message"
+                  placeholder="Type a message"
+                  (keyup.enter)="sendMessage()"
+                />
+                <label for="floatingInput">Send Message</label>
+              </div>
+
+              <button
+                class="btn btn-primary rounded-4 ml-2"
+                (click)="sendMessage()"
+              >
+                <i class="fa fa-paper-plane px-2 fs-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div>
+  <h2>Chat Room</h2>
+
+  <div>
+    <input
+      type="text"
+      [(ngModel)]="username"
+      placeholder="Enter your name"
+      [disabled]="usernameSet"
+    />
+    <button *ngIf="!usernameSet" (click)="setUsername()">Set Name</button>
+  </div>
+
+  <div *ngFor="let msg of messages" class="message">
+    <strong>{{ msg.username }}:</strong> {{ msg.message }}
+  </div>
+
+  <input
+    type="text"
+    [(ngModel)]="message"
+    placeholder="Type a message"
+    (keyup.enter)="sendMessage()"
+    [disabled]="!usernameSet"
+  />
+  <button (click)="sendMessage()" [disabled]="!usernameSet">Send</button>
+</div> -->
+<div class="">
+  <app-video-call></app-video-call>
+</div>

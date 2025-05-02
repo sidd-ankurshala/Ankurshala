@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/browse-classes/browse-classes.component.css"],
+  "sourcesContent": ["::ng-deep #zmmtg-root {\n  position: static !important;\n  background-color: transparent !important;\n}\n"],
+  "mappings": ";AAAA,UAAU,CAAC;AACT,YAAU;AACV,oBAAkB;AACpB;",
+  "names": []
+}

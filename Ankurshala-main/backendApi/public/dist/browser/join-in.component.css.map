@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/join-in/join-in.component.css"],
+  "sourcesContent": [".showcase-container {\r\n    background-image: url('/assets/images/join-in-bg.png');\r\n    background-size: cover;\r\n    background-position: center;\r\n    height: calc(100vh - 190px);\r\n}\r\n/* select {\r\n    max-width: 320px;\r\n} */"],
+  "mappings": ";AAAA,CAAC;AACG,oBAAkB;AAClB,mBAAiB;AACjB,uBAAqB;AACrB,UAAQ,KAAK,MAAM,EAAE;AACzB;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/wallet/wallet-home/wallet-home.component.css"],
+  "sourcesContent": [".hover-effect {\r\n    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Smooth transition */\r\n    cursor: pointer;\r\n  }\r\n  \r\n  .hover-effect:hover {\r\n    background-color: var(--bs-primary); /* Use Bootstrap primary color */\r\n    color: #fff; /* White text for contrast */\r\n    transform: scale(1.05); /* Slightly enlarge for effect */\r\n    border: none;\r\n  }\r\n  "],
+  "mappings": ";AAAA,CAAC;AACG;AAAA,IAAY,iBAAiB,IAAI;AAAA,IAAE,MAAM,IAAI;AAAA,IAAE,UAAU;AACzD,UAAQ;AACV;AAEA,CALD,YAKc;AACX,oBAAkB,IAAI;AACtB,SAAO;AACP,aAAW,MAAM;AACjB,UAAQ;AACV;",
+  "names": []
+}

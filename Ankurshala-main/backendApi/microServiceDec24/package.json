@@ -1,0 +1,32 @@
+{
+  "name": "wallet",
+  "version": "1.0.0",
+  "description": "wallet plugin on node and mongo",
+  "main": "wallet.js",
+  "scripts": {
+    "start": "node wallet.js",
+    "start:dev": "nodemon wallet.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wallet",
+    "node",
+    "mongo",
+    "plugin",
+    "api",
+    "microservice"
+  ],
+  "author": "Neetesh Kuchya",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "mongoose": "^7.6.3"
+  },
+  "devDependencies": {
+    "axios": "^1.5.1",
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/profile/profile.component.css"],
+  "sourcesContent": [".profile-container {\r\n    margin: 0 auto;\r\n    padding: 20px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 10px;\r\n    background-color: #f9f9f9;\r\n}\r\n.profile-header {\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n}\r\n.profile-content {\r\n    display: flex;\r\n    align-items: start;\r\n}\r\n.profile-picture img {\r\n    border-radius: 50%;\r\n    width: 200px;\r\n    height: 200px;\r\n    margin-right: 20px;\r\n    object-fit: contain;\r\n}\r\n.profile-details {\r\n    flex-grow: 1;\r\n}\r\n.profile-actions {\r\n    text-align: center;\r\n    margin-top: 20px;\r\n}\r\n.profile-actions button {\r\n    margin: 0 10px;\r\n    padding: 10px 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    background-color: #007bff;\r\n    color: white;\r\n    cursor: pointer;\r\n}\r\n.profile-actions button:hover {\r\n    background-color: #0056b3;\r\n}"],
+  "mappings": ";AAAA,CAAC;AACG,UAAQ,EAAE;AACV,WAAS;AACT,UAAQ,IAAI,MAAM;AAClB,iBAAe;AACf,oBAAkB;AACtB;AACA,CAAC;AACG,cAAY;AACZ,iBAAe;AACnB;AACA,CAAC;AACG,WAAS;AACT,eAAa;AACjB;AACA,CAAC,gBAAgB;AACb,iBAAe;AACf,SAAO;AACP,UAAQ;AACR,gBAAc;AACd,cAAY;AAChB;AACA,CAAC;AACG,aAAW;AACf;AACA,CAAC;AACG,cAAY;AACZ,cAAY;AAChB;AACA,CAJC,gBAIgB;AACb,UAAQ,EAAE;AACV,WAAS,KAAK;AACd,UAAQ;AACR,iBAAe;AACf,oBAAkB;AAClB,SAAO;AACP,UAAQ;AACZ;AACA,CAbC,gBAagB,MAAM;AACnB,oBAAkB;AACtB;",
+  "names": []
+}

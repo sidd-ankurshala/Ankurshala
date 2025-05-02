@@ -1,0 +1,176 @@
+<div class="row">
+  <div class="col-12 col-md">
+    <div class="row">
+      <div class="col">
+        <!-- Date time card -->
+        <div class="card bg-white">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <div
+                class="d-flex justify-content-center align-items-center bg-dark rounded p-3 px-4"
+              >
+                <!-- <i class="fi fi-rs-calendar fs-3 text-white"></i> -->
+                <i class="fa fa-calendar text-white" aria-hidden="true"></i>
+              </div>
+              <div class="text-end">
+                <h3 class="mb-0 text-dark">
+                  {{ currentDate | date : "dd-MM-YYYY" }}
+                </h3>
+                <p class="mb-0 text-secondary">Date</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="mb-4">List of Schedule Requests</h3>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Class</th>
+          <th>Subject</th>
+          <th>Chapter</th>
+          <th>Topic</th>
+          <th>Acceptance Status</th>
+          <th>Schedule Date</th>
+          <th>Start Time</th>
+          <th>Duration (mins)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Row for each schedule request -->
+        <tr *ngFor="let scheduledClass of scheduleRequests">
+          <td>
+            <img
+              [src]="'/api/files/download/' + scheduledClass.class.image"
+              alt="Class Image"
+              style="
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+                margin-right: 10px;
+                border-radius: 50%;
+              "
+            />
+            {{ scheduledClass.class.name }}
+          </td>
+          <td>
+            <img
+              [src]="'/api/files/download/' + scheduledClass.subject.image"
+              alt="Subject Image"
+              style="
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+                margin-right: 10px;
+                border-radius: 50%;
+              "
+            />
+            {{ scheduledClass.subject.name }}
+          </td>
+          <td>
+            <img
+              [src]="'/api/files/download/' + scheduledClass.chapter.image"
+              alt="Chapter Image"
+              style="
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+                margin-right: 10px;
+                border-radius: 50%;
+              "
+            />
+            {{ scheduledClass.chapter.name }}
+          </td>
+          <td>
+            <img
+              [src]="'/api/files/download/' + scheduledClass.topic.image"
+              alt="Topic Image"
+              style="
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+                margin-right: 10px;
+                border-radius: 50%;
+              "
+            />
+            {{ scheduledClass.topic.name }}
+          </td>
+          <td>
+            <span
+              *ngIf="scheduledClass.acceptanceStatus === 'pending'"
+              class="w-100 badge bg-warning text-dark"
+            >
+              {{ scheduledClass.acceptanceStatus | titlecase }}
+            </span>
+            <span
+              *ngIf="scheduledClass.acceptanceStatus === 'accepted'"
+              class="w-100 badge bg-success text-white"
+            >
+              {{ scheduledClass.acceptanceStatus | titlecase }}
+            </span>
+            <span
+              *ngIf="scheduledClass.acceptanceStatus === 'rejected'"
+              class="w-100 badge bg-danger text-white"
+            >
+              {{ scheduledClass.acceptanceStatus | titlecase }}
+            </span>
+            <br />
+            <!-- if pending show accept/reject option -->
+            <div class="row">
+              <div class="col">
+                <button
+                  *ngIf="scheduledClass.acceptanceStatus === 'pending'"
+                  class="btn btn-sm w-100 btn-success"
+                  (click)="acceptRequest(scheduledClass._id)"
+                >
+                  Accept
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  *ngIf="scheduledClass.acceptanceStatus === 'pending'"
+                  class="btn btn-sm w-100 btn-danger"
+                  (click)="
+                    rejectRequest(
+                      scheduledClass._id,
+                      scheduledClass,
+                      scheduledClass?.topic.price
+                    )
+                  "
+                >
+                  Reject
+                </button>
+              </div>
+            </div>
+            <!-- if accepted show join meeting room -->
+            <div class="row">
+              <div class="col">
+                <button
+                  *ngIf="scheduledClass.acceptanceStatus === 'accepted'"
+                  class="btn btn-sm w-100 btn-primary"
+                  (click)="joinMeetingRoom(scheduledClass)"
+                >
+                  Join Meeting Room
+                </button>
+              </div>
+            </div>
+
+          </td>
+          <td>{{ scheduledClass.scheduleDate | date : "yyyy-MM-dd" }}</td>
+          <td>{{ scheduledClass.startTime }}</td>
+          <td>{{ scheduledClass.duration }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="zmmtg-root"></div>
+

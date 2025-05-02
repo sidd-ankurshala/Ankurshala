@@ -1,0 +1,17 @@
+<div>
+  <h2>Join a Video Call</h2>
+  <input [(ngModel)]="identity" placeholder="Your Name" />
+  <input [(ngModel)]="roomName" placeholder="Room Name" />
+  <button (click)="joinRoom()">Join Room</button>
+  <button (click)="leaveRoom()" *ngIf="room">Leave Room</button>
+</div>
+
+<div>
+  <h3>Local Video</h3>
+  <div #localVideo class="video-container"></div>
+</div>
+
+<div>
+  <h3>Remote Video</h3>
+  <div #remoteVideo class="video-container"></div>
+</div>

@@ -1,0 +1,23 @@
+
+
+services:
+  backend:
+    build: ./backendApi
+    container_name: backend_content
+    restart: always
+    ports:
+      - "4042:4042"
+    environment:
+      - MONGO_URI=mongodb://localhost:27017/AnkurshalaPortalDB
+    volumes:
+      - ./backendApi:/app
+      - /app/node_modules
+    command: ["node", "app.js"]
+    networks:
+      - backend_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"  # Allows Docker to communicate with localhost
+
+networks:
+  backend_network:
+    driver: bridge
